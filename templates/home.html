@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobHunting</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/5f59ca6ad3.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link href="https://chancerylane.co.uk/wp-content/uploads/2019/01/job-hunting-825x500.jpg"/>
+    <style>
+        /* Default styles */
+
+        /* Adjustments for navbar and header */
+        
+        .navbar{
+            display: flex;
+            justify-content: start;
+            width:100vw;
+            background-color: #343a40; /* Dark background */
+            transition: all 0.5s ease;
+        }
+        .navbar>.navbar-brand{
+            flex-grow:1;
+            margin-left:10px;
+            color: #fff; /* White color for brand */
+            font-weight: bold; /* Bold text */
+        }
+
+        .nav-item {
+            padding: 1px 15px 1px 15px; /* Adjust padding */
+            
+        }
+
+        .nav-link{
+            color: #fff !important; /* White color for links */
+        }
+
+        .nav-item:hover{
+                background-color:rgb(137, 136, 136);
+                border-radius:30px;
+                transform: all 0.5s ease-in;
+        }
+
+        /* Adjustments for main content */
+        .home-page {
+            background-image: url("https://www.adzuna.com.au/blog/wp-content/uploads/2014/12/job-search-1030x496.jpg");
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            margin-top:40px;
+            display: flex;
+            flex-direction:column;
+            justify-content: center;
+         /* White color for text */
+        }
+
+        .home-page h1 {
+            font-size:15px;
+            margin-bottom: 5px;
+            color:rgb(15, 179, 95);
+        }
+        .home-page h2 {
+            font-size:18px;
+            margin-bottom: 5px;
+            color:rgb(251, 56, 202);
+            width:250px;
+
+        }
+
+        .home-page p {
+            font-size: 13px;
+            margin-bottom: 10px;
+
+        }
+
+        .search-label {
+            max-width: 300px; /* Adjust width */
+            /*margin: 0 auto; /* Center align */
+           /* padding: 15px; /* Add padding */
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+            border-radius: 10px;
+        }
+
+        .search-label input {
+            width: 100%; /* Adjust width */
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-right: 10px;
+            height:30px;
+        }
+
+        .search-btn {
+            background-color: #28a745; /* Green button */
+            color: #fff;
+            border: none;
+            padding: 4px 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-btn:hover {
+            background-color: #218838; /* Darker green on hover */
+        }
+
+        .discovery-jobs{
+            background-image:linear-gradient(to top,rgb(234, 241, 159),white);
+            border:2px solid rgb(234,241,159);
+            border-radius:10px;
+            display:flex;
+            flex-direction:column;
+            box-shadow: 0px 0px 10px rgb(93, 93, 93);   
+        }
+        .discovery-jobs-content{
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            text-align:center;
+        }
+        .jobs-section{
+            background-color:white;
+            border:2px solid rgb(159, 157, 157);
+            border-radius:10px;
+            height:200px;
+            overflow:auto;
+            box-shadow: 0px 0px 10px rgb(93, 93, 93);
+        }
+
+        .job-role{
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+        }
+        .job-role>h4{
+            font-size:18px;
+        }
+        .job-role>p{
+            font-size:13px;
+        }
+        .top-companies-heading{
+            text-align:center;
+            font-size:23px;
+            font-weight:bold;
+        }
+
+        .top-company-cart:hover{
+            box-shadow: 0px 0px 3px rgb(93, 93, 93);
+
+        }
+
+        .company{
+            background-color:white;
+            padding:10px;
+            border-radius:8px;
+            border:1px solid rgb(189, 189, 189);
+            height:260px;
+            width:170px;
+            margin-left:5px;
+            margin-bottom:5px;
+            display:flex;
+            flex-direction:column;
+        }
+
+        .company p{
+            font-size:13px;
+        }
+        .company .button{
+            align-items:flex-end;
+        }
+
+        .company-logo{
+            background-size:cover;
+            object-fit:cover;
+            display: flex;
+            flex-direction:column;
+            flex-grow:1;
+            
+        }
+        .company-logo img{
+            width:100px;
+           /* background-size:cover;*/
+            object-fit:cover;
+            
+        }
+        .top-companies{
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .view-btn:hover{
+            background-color:transparent;
+            color:blue;
+            border:none;
+
+        }
+
+        /* Adjustments for footer */
+        footer {
+            background-color: #343a40; /* Dark background */
+            color: #fff; /* White text */
+            padding: 40px 0;
+        }
+
+        footer a {
+            color: #fff; /* White links */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #f8f9fa; /* Lighter shade on hover */
+        }
+
+        footer p {
+            margin-bottom: 20px;
+        }
+
+        footer .container {
+            text-align: center;
+        }
+        @media screen and (min-width:769px){
+            .navbar-brand{
+                margin-left:10px;
+            }
+            .home-page{
+                height:100vh;
+                width:100vw;
+            }
+            
+            .home-page h1{
+                font-size:25px;
+            }
+            .home-page h2{
+                font-size:25px;
+                width:400px;
+            }
+            .discovery-jobs{
+                display:flex;
+                flex-direction: row;
+                justify-content:space-around;
+            }
+            .jobs-section{
+                width:500px;
+                height:300px;
+            }
+            
+            .top-companies{
+                justify-content:space-evenly;
+            }
+            .company{
+                width:220px;
+            }
+        }
+        .user{
+            display:none;
+        }
+        
+    </style>
+    
+    
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <img class="logo" src="https://chancerylane.co.uk/wp-content/uploads/2019/01/job-hunting-825x500.jpg" style="object-fit:cover;border-radius:50%" height="40px" width="40px"/>
+            <a class="navbar-brand" href="#"><i>Job Hunting</i></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ml-auto">
+                    
+                    <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="#">About</a>
+                    <a class="nav-item nav-link d-none sign-in" href="{% url 'login' %}">Sign In</a>
+                    <a class="nav-item nav-link post-job d-none d-lg-block" href="{% url 'register-hr' %}">Post Job</a>
+                    <a class="nav-item nav-link" href="#">Blog</a>
+                    <a class="nav-item nav-link" href="#">Contacts</a>
+                    <div style="display:flex">
+                        <div class=" d-lg-none" style="background-color:transparent;border:2px solid greenyellow;padding:0 5px;margin-top:10px; margin-right:10px;">
+                            <a class="nav-link sign-in" style="color:greenyellow !important;" href="{% url 'login' %}">Sign In</a>
+                        </div>
+                        <div class=" d-lg-none"  style="background-color:transparent;border:2px solid red;padding:0 5px;margin-top:10px;">
+                            <a class="nav-link post-job" style="color:red !important;" href="{% url 'register-hr' %}">Post Job</a>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="d-none d-lg-block sign-in">
+                <a class="nav-item nav-link ml-3" style="color:white" href="{% url 'login' %}"><i class="fa-solid fa-user"></i> Sign In</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="home-page">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h1>INDIA'S #1 JOB PLATFORM</h1>
+                        <h2>Let's Start Search Your Dream Jobs</h2>
+                        <p>Discover 50 lakh+ career opportunities</p>
+                        <form action="#" class="search-label d-flex">
+                            <i class="fa-solid fa-magnifying-glass pl-2 pr-1 pt-2"></i>
+                            <input type="text" placeholder="Search jobs by 'skills'">   
+                        </form>
+                        <button type="submit" class="search-btn mt-3">Search Jobs</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+            <div class="discovery-jobs m-2 mt-5 p-3">
+                <div class="discovery-jobs-content">
+                    <img src="https://static.naukimg.com/s/0/0/i/role-collection-ot.png" style="margin-left:150px;" class="mb-2" height="150px" width="300px"/>
+                    <div style="color:black">
+                        <h1 style="font-size:20px;">Discover jobs across popular roles</h1>
+                        <p>Select a role and we'll show you relevant jobs for it!</p>
+                    </div>
+                </div>
+                <div class="jobs-section">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-6 pt-3 job-role" >
+                                <h4>Full Stack Developer</h4>
+                                <p>13.6k+ Jobs  ></p>
+                            </div>
+                            <div class="col-6 pt-3 v" >
+                                <h6 >Mobile/App Developer</h4>
+                                <p>2.1k+ Jobs  ></p>
+                            </div>
+                            <div class="col-6 pt-3 job-role" >
+                                <h4 >Front End Developer</h4>
+                                <p>3.1k+ Jobs  ></p>
+                            </div>
+                            <div class="col-6 pt-3 job-role" >
+                                <h4 >DevOps Engineer</h4>
+                                <p>1.9k+ Jobs  ></p>
+                            </div>
+                            <div class="col-6 pt-3 job-role" >
+                                <h4 >Engineering Manager</h4>
+                                <p>1.6k+ Jobs  ></p>
+                            </div>
+                            <div class="col-6 pt-3 job-role" >
+                                <h4 >Technical Lead</h4>
+                                <p>8.1k+ Jobs  ></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-6 pt-3 job-role" >
+                                <h4>Full Stack Developer</h4>
+                                <p>13.6k+ Jobs  ></p>
+                            </div>
+                            <div class="col-6 pt-3 v" >
+                                <h6 >Mobile/App Developer</h4>
+                                <p>2.1k+ Jobs  ></p>
+                            </div>
+                            <div class="col-6 pt-3 job-role" >
+                                <h4 >Front End Developer</h4>
+                                <p>3.1k+ Jobs  ></p>
+                            </div>
+                            <div class="col-6 pt-3 job-role" >
+                                <h4 >DevOps Engineer</h4>
+                                <p>1.9k+ Jobs  ></p>
+                            </div>
+                            <div class="col-6 pt-3 job-role" >
+                                <h4 >Engineering Manager</h4>
+                                <p>1.6k+ Jobs  ></p>
+                            </div>
+                            <div class="col-6 pt-3 job-role" >
+                                <h4 >Technical Lead</h4>
+                                <p>8.1k+ Jobs  ></p>
+                            </div>
+                        </div>
+                    </div>                            
+                    
+                               
+                </div>
+                
+            </div>
+            <div class="mt-5 pt-5">
+                <h1 class="top-companies-heading">Job Openings in Top companies</h1>
+                <div class="mt-5 mb-5 p-2 top-companies">
+                    <div class=" top-company-cart company">
+                        <div class="company-logo">
+                            <img src="https://www.businessinsider.in/photo/85589491/bajaj-finance-overtakes-sbi-in-market-capitalisation-as-parent-bajaj-finserv-gets-sebi-nod-to-start-mutual-fund-business.jpg?imgsize=8506" />
+                        </div>
+                        <h5 class="mt-3">Bajaj Allianz Life Insurance</h5>
+                        <p>Provider of life insurance and financial services.</p>
+                        <div class="button">
+                            <button class="btn-primary view-btn">View jobs ></button>
+                        </div>
+                        
+                    </div>
+                    <div class="top-company-cart company">
+                        <div class="company-logo mt-4" >
+                            <img src="https://apna.co/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fmumbai_apnatime_prod%2Fapna-home%2Fcompanies%2Fic-paytm.png&w=1920&q=75"/>
+                        </div>
+                        <h5 class="mt-3">Paytm services Pvt. Ltd.</h5>
+                        <p>Digital payment and e-commerce facilitor.</p>
+                        <div class="button">
+                            <button class="btn-primary view-btn">View jobs ></button>
+                        </div>
+                        
+                    </div>
+                    <div class="top-company-cart company">
+                        <div class="company-logo mt-5">
+                            <img src="https://apna.co/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fmumbai_apnatime_prod%2Fapna-home%2Fcompanies%2Fdunzo.png&w=1920&q=75" />
+                        </div>
+                        
+                        <h5 class="mt-3">Dunzo</h5>
+                        <p>On-demand delivery service provider.</p>
+                        <div class="button">
+                            <button class="btn-primary view-btn">View jobs ></button>
+                        </div>
+                        
+                    </div>
+                    <div class="top-company-cart company">
+                        <div class="company-logo">
+                            <img src="https://apna.co/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fmumbai_apnatime_prod%2Fapna-home%2Fcompanies%2Freliance-jio.png&w=1080&q=75"/>
+                        </div>
+                        <h5 class="mt-3">Reliance Jio</h5>
+                        <p>Telecommunications and digital serivices provider.</p>
+                        <div class="button">
+                            <button class="btn-primary view-btn">View jobs ></button>
+                        </div>
+                        
+                    </div>
+                    <div class="top-company-cart company">
+                        <div class="company-logo">
+                            <img src="https://apna.co/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fmumbai_apnatime_prod%2Fapna-home%2Fcompanies%2Fhdfc.png&w=1920&q=75" />
+                        </div>
+                        <h6 class="mt-3">Hdfc Life Insurance Company Limited</h6>
+                        <p>Life insurance and financial services firm.</p>
+                        <div class="button">
+                            <button class="btn-primary view-btn">View jobs ></button>
+                        </div>
+                        
+                    </div>
+                    <div class="top-company-cart company">
+                        <div class="company-logo mt-5">
+                            <img src="https://apna.co/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fmumbai_apnatime_prod%2Fapna-home%2Fcompanies%2Fteam-lease.png&w=1920&q=75"/>
+                        </div>
+                        <h5 class="mt-2">Teamlease</h5>
+                        <p>Staffing and HR solutions partner.</p>
+                        <div class="button">
+                            <button class="btn-primary view-btn">View jobs ></button>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </main>
+
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>Job Hunting</h4>
+                    <p>Address: 7-53,Thimmampalli</p>
+                    <p>Phone: (+91)6303343274</p>
+                    <p>Hours: 10:00-18:00,Mon-Sat</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>About</h4>
+                    <a href="#">About Us</a><br>
+                    <a href="#">Delivery Information</a><br>
+                    <a href="#">Privacy Policy</a><br>
+                    <a href="#">Terms & Conditions</a><br>
+                    <a href="#">Contacts Us</a>
+                </div>
+                <div class="col-md-4">
+                    <h4>Follow Us</h4>
+                    <a href="#"><i class="fab fa-envelope"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!--
